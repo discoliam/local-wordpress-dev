@@ -1,4 +1,6 @@
-setup:
+all: main tidy etc
+
+main:
 	# Instal latest GB English version of Wordpress
 	wp core download --locale=en_GB
 
@@ -27,11 +29,8 @@ setup:
 	mv _starter-master/.gitignore .gitignore
 	mv _starter-master/gulpfile.js gulpfile.js
 	mv _starter-master/package.json package.json
-	# mv _starter-master/README.md README.md 
+	mv _starter-master/README.md README.md 
 	mv _starter-master/sprite-template.html sprite-template.html
-
-  # Delete source theme files
-	rm -rf _starter-master master.zip
 
 	# Find and replace on _starter with ${slugname}
 	find . -name '*.php' |xargs perl -pi -e 's/_starter/${slugname}/g'
@@ -39,7 +38,7 @@ setup:
 	find . -name 'package.json' |xargs perl -pi -e 's/_starter/${slugname}/g';
 
 	# Find and replace on _Starter with ${title}
-	# find . -name 'README.md' |xargs perl -pi -e 's/_Starter/${title}/g';
+	find . -name 'README.md' |xargs perl -pi -e 's/_Starter/${title}/g';
 
 	# Activate starter theme
 	wp theme activate ${slugname}
@@ -69,9 +68,11 @@ setup:
 	#Restart Apache
 	sudo apachectl restart
 
-
 	#Install dependecies from NPM
 	npm install
+
+	# Delete source theme files and git stuff
+	rm -rf _starter-master master.zip .git
 
 clean: 
 	wp db drop --yes

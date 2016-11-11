@@ -44,10 +44,10 @@ main:
 	wp theme activate ${slugname}
 
 	# Install and activate plugins
-	# wp plugin install contact-form-7 --activate        # Concact Form 7
-	# wp plugin install wp-pagenavi --activate           # Wp Page Navi
-	# wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
-	# wp plugin install wordpress-seo --activate         # Yoast SEO
+	wp plugin install contact-form-7 --activate        # Concact Form 7
+	wp plugin install wp-pagenavi --activate           # Wp Page Navi
+	wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
+	wp plugin install wordpress-seo --activate         # Yoast SEO
 
 	#Create record in hosts file
 	sudo hosts add 127.0.0.1 ${slugname}.local

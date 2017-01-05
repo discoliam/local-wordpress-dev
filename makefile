@@ -24,7 +24,6 @@ main:
 	mv _starter-master/wp-content/themes/_starter wp-content/themes/${slugname}
 
 	# Move other files to root
-	mv _starter-master/.gitignore .gitignore
 	mv _starter-master/gulpfile.js gulpfile.js
 	mv _starter-master/package.json package.json
 	mv _starter-master/README.md README.md 
@@ -51,23 +50,23 @@ main:
 	sudo hosts add 127.0.0.1 ${slugname}.local
 
 	#Create record for virtual host
-	sudo echo "
-		<VirtualHost *:80>
-			DocumentRoot \"/Users/discoliam/sites/${slugname}\"
-			ServerName ${slugname}.local
-		  <directory \"/Users/discoliam/sites/${slugname}\">
-		    Options Indexes FollowSymLinks
-		    AllowOverride All
-		    Order allow,deny
-		    Allow from all
-		  </directory>
-		</VirtualHost>" >> vhost.txt
+	# sudo echo "
+	# 	<VirtualHost *:80>
+	# 		DocumentRoot \"/Users/discoliam/sites/${slugname}\"
+	# 		ServerName ${slugname}.local
+	# 	  <directory \"/Users/discoliam/sites/${slugname}\">
+	# 	    Options Indexes FollowSymLinks
+	# 	    AllowOverride All
+	# 	    Order allow,deny
+	# 	    Allow from all
+	# 	  </directory>
+	# 	</VirtualHost>" >> vhost.txt
 
 	#Restart Apache
 	sudo apachectl restart
 
 	#Install dependecies from NPM
-	npm install
+	# npm install
 
 	# Delete source theme files and git stuff
 	rm -rf _starter-master master.zip .git

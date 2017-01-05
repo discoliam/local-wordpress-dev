@@ -28,6 +28,7 @@ main:
 	mv _starter-master/package.json package.json
 	mv _starter-master/README.md README.md 
 	mv _starter-master/sprite-template.html sprite-template.html
+	mv _starter-master/acf-custom-fields.json acf-custom-fields.json
 
 	# Find and replace on _starter with ${slugname}
 	find . -name '*.php' |xargs perl -pi -e 's/_starter/${slugname}/g'
@@ -41,10 +42,10 @@ main:
 	wp theme activate ${slugname}
 
 	# Install and activate plugins
-	wp plugin install contact-form-7 --activate        # Concact Form 7
-	wp plugin install wp-pagenavi --activate           # Wp Page Navi
-	wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
-	wp plugin install wordpress-seo --activate         # Yoast SEO
+	# wp plugin install contact-form-7 --activate        # Concact Form 7
+	# wp plugin install wp-pagenavi --activate           # Wp Page Navi
+	# wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
+	# wp plugin install wordpress-seo --activate         # Yoast SEO
 
 	#Create record in hosts file
 	sudo hosts add 127.0.0.1 ${slugname}.local

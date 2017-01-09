@@ -1,3 +1,18 @@
+# Define vHost Example
+define vhostdata
+	<VirtualHost *:80>
+		DocumentRoot \"/Users/discoliam/sites/${slugname}\"
+		ServerName ${slugname}.local
+	  <directory \"/Users/discoliam/sites/${slugname}\">
+	    Options Indexes FollowSymLinks
+	    AllowOverride All
+	    Order allow,deny
+	    Allow from all
+	  </directory>
+	</VirtualHost>
+endef
+export vhostdata
+
 main:
 	# Instal latest GB English version of Wordpress
 	wp core download --locale=en_GB
@@ -56,17 +71,7 @@ main:
 	sudo hosts add 127.0.0.1 ${slugname}.local
 
 	#Create record for virtual host
-	# sudo echo "
-	# 	<VirtualHost *:80>
-	# 		DocumentRoot \"/Users/discoliam/sites/${slugname}\"
-	# 		ServerName ${slugname}.local
-	# 	  <directory \"/Users/discoliam/sites/${slugname}\">
-	# 	    Options Indexes FollowSymLinks
-	# 	    AllowOverride All
-	# 	    Order allow,deny
-	# 	    Allow from all
-	# 	  </directory>
-	# 	</VirtualHost>" >> vhost.txt
+	@echo "$$vhostdata" > /private/etc/apache2/extra/httpd-vhosts.conf
 
 	#Restart Apache
 	sudo apachectl restart

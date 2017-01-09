@@ -47,6 +47,11 @@ main:
 	# wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
 	# wp plugin install wordpress-seo --activate         # Yoast SEO
 
+	# Install ACF Pro
+  curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$ACFKEY"
+  wp plugin install acf-pro.zip --activate
+	rm acf-pro.zip
+
 	#Create record in hosts file
 	sudo hosts add 127.0.0.1 ${slugname}.local
 

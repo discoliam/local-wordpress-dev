@@ -48,8 +48,5 @@ Thats it.
 
 
 ## To Do
-
-* Hostsfile addition needs to appear on new line
-* Install ACF PRO Automaticaly
 * Add vhost automaticaly
 * Tidyup documentation

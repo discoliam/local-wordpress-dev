@@ -63,7 +63,7 @@ main:
 	# wp plugin install wordpress-seo --activate         # Yoast SEO
 
 	# Install ACF Pro
-	curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$ACFKEY"
+	curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$(ACFKEY)"
 	wp plugin install acf-pro.zip --activate
 	rm acf-pro.zip
 
@@ -81,6 +81,9 @@ main:
 
 	# Delete source theme files and git stuff
 	rm -rf _starter-master master.zip .git
+
+test:
+	curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$(ACFKEY)"
 
 clean: 
 	wp db drop --yes

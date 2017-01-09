@@ -82,9 +82,6 @@ main:
 	# Delete source theme files and git stuff
 	rm -rf _starter-master master.zip .git
 
-test:
-	curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$(ACFKEY)"
-
 clean: 
 	wp db drop --yes
 	rm -rf _starter-master wp-admin wp-includes wp-content sprite-template.html package.json gulpfile.js .gitignore master.zip wp-config.php readme.html license.txt .htaccess wp-activate.php wp-config-sample.php wp-login.php wp-trackback.php wp-blog-header.php wp-cron.php wp-mail.php wp-comments-post.php wp-links-opml.php wp-settings.php wp-load.php wp-signup.php xmlrpc.php index.php;

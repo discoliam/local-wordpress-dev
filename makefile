@@ -71,7 +71,7 @@ main:
 	sudo hosts add 127.0.0.1 ${slugname}.local
 
 	#Create record for virtual host
-	@echo "$$vhostdata" > /private/etc/apache2/extra/httpd-vhosts.conf
+	sudo @echo "$$vhostdata" > /private/etc/apache2/extra/httpd-vhosts.conf
 
 	#Restart Apache
 	sudo apachectl restart

@@ -32,14 +32,18 @@ This will:
 * Setup `wp-config.php` file
 * Create MySQL database called `<slugname>`
 * Create a default admin user
-    * **Username:** admin 
-    * **Password:** passw0rd
+  * **Username:** admin 
+  * **Password:** passw0rd
 * Download, rename and activate the [_Starter](https://github.com/discoliam/_starter) theme
+* Delete all Posts & Pages
+* Delete unused Plugins & Themes
+* Turn of Comments on posts
+* Create home and Contact Page with correct templates
 * Installs and activates several plugins
-    * [Contact From 7](http://contactform7.com/)
-    * [WP-PageNavi](https://en-gb.wordpress.org/plugins/wp-pagenavi/)
-    * [Regenerate Thumbnails](https://en-gb.wordpress.org/plugins/regenerate-thumbnails/)
-    * [Yoast SEO](https://en-gb.wordpress.org/plugins/wordpress-seo/)
+  * [Contact From 7](http://contactform7.com/)
+  * [WP-PageNavi](https://en-gb.wordpress.org/plugins/wp-pagenavi/)
+  * [Regenerate Thumbnails](https://en-gb.wordpress.org/plugins/regenerate-thumbnails/)
+  * [Yoast SEO](https://en-gb.wordpress.org/plugins/wordpress-seo/)
 * Create a reference to `<slugname>.local` in your hosts file
 * Create a refrence to `user/discoliam/sites/<slugname>` in your `vhost.conf` file
 * Sets the permalink structure to `/%year%/%monthnum%/%day%/%postname%/`
@@ -51,3 +55,4 @@ This will:
 ## To Do
 * Add vhost automaticaly not currenlty working :( 
 * Added a var that lets you choose the theme to install
+* The rename of the theme dosn't seem to be working in the gulpfile

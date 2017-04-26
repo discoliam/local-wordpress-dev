@@ -67,6 +67,25 @@ main:
 	wp plugin install acf-pro.zip --activate
 	rm acf-pro.zip
 
+	# Delete all Posts
+	wp post delete $(wp post list --post_type='post' --format=ids)
+
+	# Delete all Pages
+	wp post delete $(wp post list --post_type='page' --format=ids)
+
+	#Delete unused Plugins
+	wp plugin delete akismet hello
+
+	#Delete unused Themes
+	wp theme delete twentyseventeen twentysixteen twentyfifteen
+
+	#Turn of Comments
+	wp option set default_comment_status closed
+
+	# Creat home and Contact Page with correct templates
+	wp post create --post_type=page --post_status=publish --post_title='Home' --page_template='page-home.php'
+	wp post create --post_type=page --post_status=publish --post_title='Contact'  --page_template='page-contact.php'
+
 	#Create record in hosts file
 	sudo hosts add 127.0.0.1 ${slugname}.local
 

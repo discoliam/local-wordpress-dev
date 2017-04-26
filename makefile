@@ -57,10 +57,10 @@ main:
 	wp theme activate ${slugname}
 
 	# Install and activate plugins
-	# wp plugin install contact-form-7 --activate        # Concact Form 7
-	# wp plugin install wp-pagenavi --activate           # Wp Page Navi
-	# wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
-	# wp plugin install wordpress-seo --activate         # Yoast SEO
+	wp plugin install contact-form-7 --activate        # Concact Form 7
+	wp plugin install wp-pagenavi --activate           # Wp Page Navi
+	wp plugin install regenerate-thumbnails --activate # Regenrate Thumnails
+	wp plugin install wordpress-seo --activate         # Yoast SEO
 
 	# Install ACF Pro
 	curl -o acf-pro.zip "http://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=$(ACFKEY)"
@@ -70,14 +70,17 @@ main:
 	#Create record in hosts file
 	sudo hosts add 127.0.0.1 ${slugname}.local
 
-	#Create record for virtual host
-	sudo @echo "$$vhostdata" > /private/etc/apache2/extra/httpd-vhosts.conf
+	# #Create record for virtual host
+	# sudo @echo "$$vhostdata" > /private/etc/apache2/extra/httpd-vhosts.conf
+
+	# Setup Permalink Structure
+	$ wp rewrite structure '/%year%/%monthnum%/%day%/%postname%/'
 
 	#Restart Apache
 	sudo apachectl restart
 
 	#Install dependecies from NPM
-	# npm install
+	npm install
 
 	# Delete source theme files and git stuff
 	rm -rf _starter-master master.zip .git

@@ -26,9 +26,6 @@ main:
 	# Install Wordpress (with basic admin username password)
 	wp core install --url=${slugname}.local --title="${title}" --admin_user=admin --admin_password=passw0rd --admin_email=info@example.local
 
-	# Set Permalinks to Year / Month / Day Name 
-	wp rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
-
 	#Download _Starter Repo
 	curl -LOk https://github.com/discoliam/_starter/archive/master.zip
 
@@ -61,7 +58,6 @@ main:
 	wp plugin install wp-pagenavi --activate           		# Wp Page Navi
 	wp plugin install regenerate-thumbnails --activate 		# Regenrate Thumnails
 	wp plugin install wordpress-seo --activate         		# Yoast SEO
-  wp plugin install wordpress-popular-posts --activate 	# Wordpress Popular Posts
   wp plugin install breadcrumb-navxt --activate 				# Breadcrumb NavXT
 
 
